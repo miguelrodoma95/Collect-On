@@ -3,7 +3,11 @@ package com.miwoapp.collecton.Fragments.LoginFragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +39,48 @@ class LoginFragment : Fragment() {
 
         clickListeners()
         toolbarStatus()
+        clearErrorMessages()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //var currentUser: FirebaseUser = firebaseAuth.currentUser!!
+        //goToMainActivity()
+    }
+
+    private fun clearErrorMessages() {
+        val tilEmail = activity!!.findViewById<TextInputLayout>(R.id.til_email)
+        val tilPassword = activity!!.findViewById<TextInputLayout>(R.id.til_password)
+        val etEmail = activity!!.findViewById<EditText>(R.id.et_email)
+        val etPassword = activity!!.findViewById<EditText>(R.id.et_password)
+
+        etEmail.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                tilEmail.error = null
+            }
+        })
+
+        etPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                tilPassword.error = null
+            }
+        })
     }
 
     private fun toolbarStatus() {
@@ -52,28 +98,53 @@ class LoginFragment : Fragment() {
             var email = etEmail.text.toString()
             var password = etPassword.text.toString()
 
-            //Todo: Check that neither of the fields is empty
-
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(activity!!, object : OnCompleteListener<AuthResult> {
-                        override fun onComplete(task: Task<AuthResult>) {
-                            if(task.isSuccessful()) {
-                                Toast.makeText(activity!!, "Login succesful", Toast.LENGTH_SHORT).show()
-                                var user: FirebaseUser = firebaseAuth.currentUser!!
-                                goToMainActivity()
-                            } else {
-                                Toast.makeText(activity!!, "Login failed", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-
-                    })
+            if(fieldsAreEmpty(email, password)){
+                displayError(email, password)
+            } else {
+                loginWithFirebase(email, password)
+            }
         }
+
         btnRegister.setOnClickListener {
             val registerFragment = RegisterFragment()
 
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.container_login, registerFragment).addToBackStack(null).commit()
+            fragmentTransaction.
+                    replace(R.id.container_login, registerFragment)
+                    .addToBackStack(null)
+                    .commit()
         }
+    }
+
+    private fun displayError(email: String, password: String) {
+        if (TextUtils.isEmpty(email)) {
+            val tilEmail = activity!!.findViewById<TextInputLayout>(R.id.til_email)
+            tilEmail.error = resources.getString(R.string.error_required_field)
+        }
+        if (TextUtils.isEmpty(password)) {
+            val tilPassword = activity!!.findViewById<TextInputLayout>(R.id.til_password)
+            tilPassword.error = resources.getString(R.string.error_required_field)
+        }
+    }
+
+    private fun fieldsAreEmpty(email: String, password: String): Boolean {
+        return TextUtils.isEmpty(email) || TextUtils.isEmpty(password)
+    }
+
+    private fun loginWithFirebase(email: String, password: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(activity!!, object : OnCompleteListener<AuthResult> {
+                    override fun onComplete(task: Task<AuthResult>) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(activity!!, "Login succesful", Toast.LENGTH_SHORT).show()
+                            var user: FirebaseUser = firebaseAuth.currentUser!!
+                            goToMainActivity()
+                        } else {
+                            Toast.makeText(activity!!, "Login failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                })
     }
 
     private fun goToMainActivity() {
@@ -81,12 +152,4 @@ class LoginFragment : Fragment() {
         startActivity(mainActivityIntent)
         activity!!.finish()
     }
-
-
-    override fun onStart() {
-        super.onStart()
-        var currentUser: FirebaseUser = firebaseAuth.currentUser!!
-        goToMainActivity()
-    }
-
 }

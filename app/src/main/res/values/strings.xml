@@ -24,4 +24,5 @@
     <string name="my_collections_bottomnav">My collections</string>
     <string name="exchange_bottomnav">Exchange</string>
     <string name="community_bottomnav">Community</string>
+    <string name="error_required_field">Required field</string>
 </resources>

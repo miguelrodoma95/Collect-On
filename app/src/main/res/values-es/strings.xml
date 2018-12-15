@@ -23,4 +23,5 @@
     <string name="my_collections_bottomnav">Mis colecciones</string>
     <string name="exchange_bottomnav">Intercambio</string>
     <string name="community_bottomnav">Comunidad</string>
+    <string name="error_required_field">Campo requerido</string>
 </resources>
