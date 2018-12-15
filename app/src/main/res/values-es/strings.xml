@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CollectOn</string>
+
+    <string name="email_login_fragment">Correo electrónico</string>
+    <string name="password_login_fragment">Contraseña</string>
+    <string name="log_in_button">Iniciar sesión</string>
+    <string name="register_button">Registrarme</string>
+    <string name="dont_have_an_account">¿No tienes una cuenta?</string>
+</resources>

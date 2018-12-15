@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "542204145004",
+    "firebase_url": "https://collecton-1308e.firebaseio.com",
+    "project_id": "collecton-1308e",
+    "storage_bucket": "collecton-1308e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542204145004:android:2d43c5620993ce41",
+        "android_client_info": {
+          "package_name": "com.miwoapp.collecton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542204145004-jbloeinbjur5avrnd6s0b4baonq401jv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miwoapp.collecton",
+            "certificate_hash": "8bff1f02bf34b924a157608d6ae58ca1e5d0b220"
+          }
+        },
+        {
+          "client_id": "542204145004-knvv7pj27mk1v6sqrv61toukk474qim6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW_MN9ytTKXoQekp3hjosH4Lfk7cGoHgs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542204145004-knvv7pj27mk1v6sqrv61toukk474qim6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
