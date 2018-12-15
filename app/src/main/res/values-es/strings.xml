@@ -6,4 +6,21 @@
     <string name="log_in_button">Iniciar sesión</string>
     <string name="register_button">Registrarme</string>
     <string name="dont_have_an_account">¿No tienes una cuenta?</string>
+
+    //Register
+    <string name="name_register">Nombre*</string>
+    <string name="lastname_register">Apellido*</string>
+    <string name="email_register">Correo electrónico*</string>
+    <string name="password_register">Contraseña*</string>
+    <string name="country_register">País</string>
+
+    //TOOLBAR TITLES
+    <string name="app_name_toolbar">COLLECT ON</string>
+    <string name="register_toolbar">CREAR CUENTA</string>
+
+    //Bottom Nav View
+    <string name="complete_list_bottomnav">Lista completa</string>
+    <string name="my_collections_bottomnav">Mis colecciones</string>
+    <string name="exchange_bottomnav">Intercambio</string>
+    <string name="community_bottomnav">Comunidad</string>
 </resources>

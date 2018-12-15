@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/complete_list"
+        android:enabled="true"
+        android:icon="@drawable/ic_complete_list_icon"
+        android:title="@string/complete_list_bottomnav"
+        app:showAsAction="always|withText"
+        android:gravity="center"/>
+    <item
+        android:id="@+id/my_collections"
+        android:enabled="true"
+        android:icon="@drawable/ic_my_collections_icon"
+        android:title="@string/my_collections_bottomnav"
+        app:showAsAction="always|withText"
+        android:gravity="center"/>
+    <item
+        android:id="@+id/exchange"
+        android:enabled="true"
+        android:icon="@drawable/ic_exchange_icon"
+        android:title="@string/exchange_bottomnav"
+        app:showAsAction="always|withText"
+        android:gravity="center"/>
+    <item
+        android:id="@+id/community"
+        android:enabled="true"
+        android:icon="@drawable/ic_community_icon"
+        android:title="@string/community_bottomnav"
+        app:showAsAction="always|withText"
+        android:gravity="center"/>
+</menu>

@@ -1,9 +1,27 @@
 <resources>
     <string name="app_name">CollectOn</string>
 
+    //Login
     <string name="email_login_fragment">Email</string>
     <string name="password_login_fragment">Password</string>
     <string name="log_in_button">Log in</string>
     <string name="register_button">Register</string>
     <string name="dont_have_an_account">Dont have an account?</string>
+
+    //Register
+    <string name="name_register">First name*</string>
+    <string name="lastname_register">Last name*</string>
+    <string name="email_register">E-mail*</string>
+    <string name="password_register">Password*</string>
+    <string name="country_register">Country</string>
+
+    //Toolbar titles
+    <string name="app_name_toolbar">COLLECT ON</string>
+    <string name="register_toolbar">CREATE ACCOUNT</string>
+
+    //Bottom Nav View
+    <string name="complete_list_bottomnav">Complete list</string>
+    <string name="my_collections_bottomnav">My collections</string>
+    <string name="exchange_bottomnav">Exchange</string>
+    <string name="community_bottomnav">Community</string>
 </resources>

@@ -1,9 +1,10 @@
-package com.miwoapp.collecton
+package com.miwoapp.collecton.Activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.FragmentTransaction
-import com.miwoapp.collecton.LoginFragments.LoginFragment
+import com.miwoapp.collecton.Fragments.LoginFragments.LoginFragment
+import com.miwoapp.collecton.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -20,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
 
         fragmentTransaction
                 .replace(R.id.container_login, loginFragment)
-                .addToBackStack("login")
                 .commit()
     }
 }
