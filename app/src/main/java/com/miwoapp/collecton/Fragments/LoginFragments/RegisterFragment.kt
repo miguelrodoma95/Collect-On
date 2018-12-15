@@ -1,6 +1,7 @@
 package com.miwoapp.collecton.Fragments.LoginFragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TextInputLayout
 import android.support.v4.app.Fragment
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.miwoapp.collecton.Activities.MainFeaturesActivity
 
 import com.miwoapp.collecton.R
 import kotlinx.android.synthetic.main.activity_login.*
@@ -156,7 +158,8 @@ class RegisterFragment : Fragment() {
                         if(task.isSuccessful()){
                             Toast.makeText(activity!!, "Register succesful", Toast.LENGTH_SHORT).show()
                             val user: FirebaseUser = firebaseAuth.currentUser!!
-                            //Todo: go to home screen with user info
+
+                            goToMainActivity()
                         } else {
                             Toast.makeText(activity!!, "Register failed", Toast.LENGTH_SHORT).show()
 
@@ -164,6 +167,12 @@ class RegisterFragment : Fragment() {
                     }
 
                 })
+    }
+
+    private fun goToMainActivity() {
+        val mainActivityIntent = Intent(activity!!, MainFeaturesActivity::class.java)
+        startActivity(mainActivityIntent)
+        activity!!.finish()
     }
 
     private fun toolbarStatus() {
