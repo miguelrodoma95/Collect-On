@@ -44,8 +44,9 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        //var currentUser: FirebaseUser = firebaseAuth.currentUser!!
-        //goToMainActivity()
+        if(firebaseAuth.currentUser != null){
+            goToMainActivity()
+        }
     }
 
     private fun clearErrorMessages() {
