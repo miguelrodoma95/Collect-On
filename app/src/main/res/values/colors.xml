@@ -7,7 +7,7 @@
     <color name="backgroundCollectOn">#262626</color>
     <color name="blueCollectOn">#2844a8</color>
     <color name="skyBlueCollectOn">#007ec9</color>
-    <color name="redCollectOn"></color>
+    <color name="redCollectOn">#941001</color>
     <color name="white">#ffffff</color>
     <color name="lightGrey">#bebebe</color>
     <color name="errorTextInput">#ffafa3</color>

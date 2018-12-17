@@ -1,66 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.miwoapp.collecton.Activities.MainFeaturesActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_main"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/blueCollectOn"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/blueCollectOn"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_toolbar_title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+            </FrameLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="@color/blueCollectOn"
+            app:itemIconTint="@drawable/bottom_nav_colors"
+            app:itemTextColor="@drawable/bottom_nav_colors"
+            app:menu="@menu/menu_bottom_nav"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/main_features_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
 
-            <TextView
-                android:id="@+id/tv_toolbar_title_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/lightGrey"
-                android:textSize="20sp"
-                android:textStyle="normal" />
         </FrameLayout>
 
-    </android.support.v7.widget.Toolbar>
+    </android.support.constraint.ConstraintLayout>
 
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/menu_nav_drawer"
+        app:headerLayout="@layout/navigationdrawer_header">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@color/blueCollectOn"
-        app:itemIconTint="@drawable/bottom_nav_colors"
-        app:itemTextColor="@drawable/bottom_nav_colors"
-        app:menu="@menu/menu_bottom_nav"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    </android.support.design.widget.NavigationView>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
-
-    </FrameLayout>
-
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>
