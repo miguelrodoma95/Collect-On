@@ -20,14 +20,18 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.miwoapp.collecton.Activities.MainFeaturesActivity
 
 import com.miwoapp.collecton.R
+import com.miwoapp.collecton.User
 import kotlinx.android.synthetic.main.activity_login.*
 
 class RegisterFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_register, container_login, false)
@@ -37,6 +41,8 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
+
         toolbarStatus()
         registerClickListener()
         clearErrorMessages()
@@ -126,7 +132,7 @@ class RegisterFragment : Fragment() {
             if(fieldsAreEmpty(name, lastName, email, password)){
                 displayError(name,lastName, email, password)
             } else {
-                registerWithFirebase(email, password)
+                registerWithFirebase(email, password, name, lastName)
             }
         }
     }
@@ -151,7 +157,7 @@ class RegisterFragment : Fragment() {
         return false
     }
 
-    private fun registerWithFirebase(email: String, password: String) {
+    private fun registerWithFirebase(email: String, password: String, name: String, lastName: String) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity!!, object : OnCompleteListener<AuthResult>{
                     override fun onComplete(task: Task<AuthResult>) {
@@ -159,7 +165,7 @@ class RegisterFragment : Fragment() {
                             Toast.makeText(activity!!, "Register succesful", Toast.LENGTH_SHORT).show()
                             val user: FirebaseUser = firebaseAuth.currentUser!!
 
-                            goToMainActivity()
+                            saveUserInDatabase(name, lastName, email)
                         } else {
                             Toast.makeText(activity!!, "Register failed", Toast.LENGTH_SHORT).show()
 
@@ -167,6 +173,27 @@ class RegisterFragment : Fragment() {
                     }
 
                 })
+    }
+
+    private fun saveUserInDatabase(name: String, lastName: String, email: String) {
+        var user = User()
+
+        user.name = name
+        user.last_name = lastName
+        user.email = email
+
+        val firebaseUser = firebaseAuth.currentUser
+        val userId: String = firebaseUser?.uid!!
+
+        val ref: DatabaseReference = firebaseDatabase.reference
+
+
+        ref.child("Users")
+                .child(userId)
+                .setValue(user)
+        
+        goToMainActivity()
+
     }
 
     private fun goToMainActivity() {
