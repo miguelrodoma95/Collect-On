@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.miwoapp.collecton.Activities.MainFeaturesActivity
 
 import com.miwoapp.collecton.R
-import com.miwoapp.collecton.User
+import com.miwoapp.collecton.Model.User
 import kotlinx.android.synthetic.main.activity_login.*
 
 class RegisterFragment : Fragment() {
@@ -162,16 +162,14 @@ class RegisterFragment : Fragment() {
                 .addOnCompleteListener(activity!!, object : OnCompleteListener<AuthResult>{
                     override fun onComplete(task: Task<AuthResult>) {
                         if(task.isSuccessful()){
-                            Toast.makeText(activity!!, "Register succesful", Toast.LENGTH_SHORT).show()
                             val user: FirebaseUser = firebaseAuth.currentUser!!
 
                             saveUserInDatabase(name, lastName, email)
                         } else {
-                            Toast.makeText(activity!!, "Register failed", Toast.LENGTH_SHORT).show()
-
+                            val errorMessage: String = task.exception?.message!!
+                            Toast.makeText(activity!!, errorMessage, Toast.LENGTH_LONG).show()
                         }
                     }
-
                 })
     }
 
@@ -191,7 +189,7 @@ class RegisterFragment : Fragment() {
         ref.child("Users")
                 .child(userId)
                 .setValue(user)
-        
+
         goToMainActivity()
 
     }

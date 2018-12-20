@@ -1,4 +1,4 @@
-package com.miwoapp.collecton
+package com.miwoapp.collecton.Model
 
 /**
  * Created by axented on 12/18/2018.

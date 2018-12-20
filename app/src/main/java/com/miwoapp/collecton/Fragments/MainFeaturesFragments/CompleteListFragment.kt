@@ -20,5 +20,6 @@ class CompleteListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
     }
 }

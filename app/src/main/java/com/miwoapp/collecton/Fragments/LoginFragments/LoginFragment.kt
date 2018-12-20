@@ -137,14 +137,13 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener(activity!!, object : OnCompleteListener<AuthResult> {
                     override fun onComplete(task: Task<AuthResult>) {
                         if(task.isSuccessful()) {
-                            Toast.makeText(activity!!, "Login succesful", Toast.LENGTH_SHORT).show()
                             var user: FirebaseUser = firebaseAuth.currentUser!!
                             goToMainActivity()
                         } else {
-                            Toast.makeText(activity!!, "Login failed", Toast.LENGTH_SHORT).show()
+                            val errorMessage = task.exception?.message
+                            Toast.makeText(activity!!, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
                         }
                     }
-
                 })
     }
 
