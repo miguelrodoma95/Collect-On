@@ -10,11 +10,10 @@ import android.support.v4.widget.DrawerLayout
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CommunityFragment
-import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteListFragment
+import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteList.CompleteListFragment
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.ExchangeFragment
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.MyCollectionsFragment
 import com.miwoapp.collecton.R
-import kotlin.math.log
 
 class MainFeaturesActivity : AppCompatActivity() {
 

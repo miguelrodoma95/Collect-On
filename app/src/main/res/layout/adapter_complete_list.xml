@@ -9,10 +9,10 @@
     <ImageView
         android:id="@+id/iv_theme_logo_complete_list"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="4dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

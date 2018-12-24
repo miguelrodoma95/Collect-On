@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundCollectOn"
-    tools:context="com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteList.CompleteListFragment">
+    tools:context="com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteList.CollectionFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_complete_list"
+        android:id="@+id/rv_collection"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
