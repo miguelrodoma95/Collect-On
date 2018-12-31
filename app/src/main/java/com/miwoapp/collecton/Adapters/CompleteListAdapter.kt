@@ -1,5 +1,6 @@
 package com.miwoapp.collecton.Adapters
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -12,6 +13,7 @@ import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteList.Collec
 import com.miwoapp.collecton.Model.Theme
 import com.miwoapp.collecton.R
 import com.squareup.picasso.Picasso
+import java.util.ArrayList
 
 /**
  * Created by Miguel on 12/20/2018.
