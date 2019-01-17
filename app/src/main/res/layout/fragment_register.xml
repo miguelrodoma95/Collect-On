@@ -110,7 +110,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView"
         android:layout_width="110dp"
         android:layout_height="110dp"
@@ -121,5 +121,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 </android.support.constraint.ConstraintLayout>

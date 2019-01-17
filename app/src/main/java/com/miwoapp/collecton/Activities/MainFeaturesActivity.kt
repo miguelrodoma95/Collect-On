@@ -21,7 +21,6 @@ class MainFeaturesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_features)
 
-        navigatIonDrawer()
         bottomNavigationView(savedInstanceState)
 
     }
@@ -56,45 +55,5 @@ class MainFeaturesActivity : AppCompatActivity() {
         }
 
 
-    }
-
-    private fun navigatIonDrawer() {
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navDrawer = findViewById<NavigationView>(R.id.nav_drawer)
-        val firebaseAuth = FirebaseAuth.getInstance()
-
-        navDrawer.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener{
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                var id = item.itemId
-                var fragment: Fragment? = null
-                when(id){
-                    R.id.profile_drawer -> {
-                        //fragment = profileFragment
-                    }
-                    R.id.about_drawer -> {
-                        //fragment = aboutFragment
-                    }
-                    R.id.fb_drawer -> {
-                        //fragment = fbFragment
-                    }
-                    R.id.twitter_drawer -> {
-                        //fragment = twiiterFragment
-                    }
-                    R.id.logout_drawer -> {
-                        firebaseAuth.signOut()
-
-                        val loginIntent = Intent(this@MainFeaturesActivity,
-                                LoginActivity::class.java)
-
-                        startActivity(loginIntent)
-
-                        finish()
-                    }
-
-                }
-                return true
-            }
-
-        })
     }
 }
