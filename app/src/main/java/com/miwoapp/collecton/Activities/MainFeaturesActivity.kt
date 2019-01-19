@@ -1,18 +1,13 @@
 package com.miwoapp.collecton.Activities
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
-import android.support.v4.widget.DrawerLayout
-import android.view.MenuItem
-import com.google.firebase.auth.FirebaseAuth
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CommunityFragment
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.CompleteList.CompleteListFragment
 import com.miwoapp.collecton.Fragments.MainFeaturesFragments.ExchangeFragment
-import com.miwoapp.collecton.Fragments.MainFeaturesFragments.MyCollectionsFragment
+import com.miwoapp.collecton.Fragments.MainFeaturesFragments.ProfileFragment
 import com.miwoapp.collecton.R
 
 class MainFeaturesActivity : AppCompatActivity() {
@@ -29,7 +24,7 @@ class MainFeaturesActivity : AppCompatActivity() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
         val completeListFragment = CompleteListFragment()
-        val myCollectionsFragment = MyCollectionsFragment()
+        val myCollectionsFragment = ProfileFragment()
         val exchangeFragment = ExchangeFragment()
         val communityFragment = CommunityFragment()
 
